@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante Viking - Cardápio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=IM+Fell+DW+Pica&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos gerais */
+        body {
+            margin: 0;
+            font-family: 'IM Fell DW Pica', serif;
+            background-color: #2c2c2c;
+            color: #f0e6d6;
+            text-align: center;
+        }
+
+        header {
+            background: url('https://images.unsplash.com/photo-1597424732205-ef953bfb0b33') center/cover;
+            padding: 2.5rem 1rem;
+            color: #fff;
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 2rem;
+            text-shadow: 2px 2px 4px black;
+        }
+
+        nav {
+            background-color: #5c3d2e;
+            padding: 1rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #f0e6d6;
+            margin: 0 1rem;
+            font-weight: bold;
+            font-size: 1.2rem;
+            font-family: 'Cinzel Decorative', serif;
+        }
+
+        .container {
+            padding: 2rem;
+        }
+
+        h2 {
+            border-bottom: 2px solid #b77e50;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            font-family: 'Cinzel Decorative', serif;
+        }
+
+        /* Cardápio */
+        .menu-section {
+            margin-top: 2rem;
+        }
+
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .menu-item {
+            background-color: #5c3d2e;
+            border: 2px solid #b77e50;
+            border-radius: 8px;
+            padding: 1rem;
+            width: 250px;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
+            cursor: pointer;
+        }
+
+        .menu-item img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .menu-item h3 {
+            margin: 0.5rem 0;
+            color: #f0e6d6;
+            font-family: 'Cinzel Decorative', serif;
+        }
+
+        .menu-item p {
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+            color: #e0c5a4;
+        }
+
+        .quantity-input {
+            width: 50px;
+            padding: 0.5rem;
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+
+        /* Formulário de Encomenda */
+        .order-form {
+            background-color: #5c3d2e;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
+        }
+
+        .order-form input, .order-form select, .order-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            border: none;
+            font-size: 1rem;
+            background-color: #f0e6d6;
+            color: #333;
+        }
+
+        .order-form button {
+            padding: 1rem 2rem;
+            border: none;
+            background-color: #b77e50;
+            color: #fff;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .order-form button:hover {
+            background-color: #f0e6d6;
+            color: #5c3d2e;
+        }
+
+        footer {
+            background-color: #5c3d2e;
+            padding: 1rem;
+            color: #f0e6d6;
+            margin-top: 2rem;
+            font-family: 'Cinzel Decorative', serif;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+         /* Responsividade */
+         @media (max-width: 1024px) {
+            .menu-item {
+                width: 30%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                font-size: 1.5rem;
+            }
+
+            nav {
+                font-size: 1rem;
+                padding: 0.8rem;
+            }
+
+            nav a {
+                font-size: 1rem;
+                margin: 0 0.8rem;
+            }
+
+            .menu-item {
+                width: 30%;
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .menu-item {
+                width: 100%; /* No celular, cada item ocupa toda a linha */
+            }
+
+            nav a {
+                font-size: 1rem;
+                margin: 0 0.5rem;
+            }
+
+            header {
+                font-size: 1.2rem;
+                padding: 1rem;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <h1>Restaurante Viking Valhalla</h1>
+        <p>O sabor digno dos deuses!</p>
+    </header>
+
+    <!-- Menu de Navegação -->
+    <nav>
+        <a href="#doces">Sabores Doces</a>
+        <a href="#salgados">Sabores Salgados</a>
+        <a href="#contato">Contato</a>
+    </nav>
+
+    <!-- Seção Sabores Doces -->
+    <section id="doces" class="container menu-section">
+        <h2>Sabores Doces</h2>
+        <div class="menu">
+            <div class="menu-item" id="torta-mel">
+                <img src="https://images.unsplash.com/photo-1601000938365-f182c5ec2f77?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Torta de Mel">
+                <h3>Torta de Mel</h3>
+                <p>Uma deliciosa torta inspirada nos banquetes vikings, adoçada com mel puro.</p>
+                <p><strong>R$ 29,90</strong></p>
+                <label for="quantidade-torta-mel">Quantidade:</label>
+                <input type="number" id="quantidade-torta-mel" class="quantity-input" value="0" min="0">
+            </div>
+            <div class="menu-item" id="frutas-creme">
+                <img src="https://media.istockphoto.com/id/1098226078/pt/foto/meringue-cake-pavlova.jpg?s=2048x2048&w=is&k=20&c=PJund1EfUnETD0raSZhORkPB76QZ7R2kjVqbv84hSuk=" alt="Frutas com Creme">
+                <h3>Frutas com Creme</h3>
+                <p>Frutas frescas servidas com creme de baunilha ancestral.</p>
+                <p><strong>R$ 24,90</strong></p>
+                <label for="quantidade-frutas-creme">Quantidade:</label>
+                <input type="number" id="quantidade-frutas-creme" class="quantity-input" value="0" min="0">
+            </div>
+            <div class="menu-item" id="mousse-chocolate-framboesa">
+                <img src="https://media.istockphoto.com/id/1332130304/pt/foto/dark-chocolate-mousse-with-berries-and-cream.jpg?s=1024x1024&w=is&k=20&c=mFdIxNQYf_OD__EXlLZAUA1MHgQiRxK583Ct0yiJMmU="alt="Mousse de Chocolate com Framboesa">
+                <h3>Mousse de Chocolate com Framboesa</h3>
+                <p>Mousse cremosa de chocolate amargo, com framboesas frescas e chantilly.</p>
+                <p><strong>R$ 24,90</strong></p>
+                <label for="quantidade-mousse-chocolate-framboesa">Quantidade:</label>
+                <input type="number" id="quantidade-mousse-chocolate-framboesa" class="quantity-input" value="0" min="0">
+            </div>
+            <div class="menu-item" id="pave-nozes-caramelo">
+                <img src="https://media.istockphoto.com/id/520234734/pt/foto/bolo-de-cenoura-com-creme-de-queijo-de-pasteleiro.jpg?s=1024x1024&w=is&k=20&c=TwE_M0_KVmZTwAWW72pTXMmRhgSbswp2ZEN1rJB4VZQ=" alt="Pavê de Nozes e Caramelo">
+                <h3>Pavê de Nozes e Caramelo</h3>
+                <p>Biscoitos embebidos em café, com creme de nozes e caramelo.</p>
+                <p><strong>R$ 22,90</strong></p>
+                <label for="quantidade-pave-nozes-caramelo">Quantidade:</label>
+                <input type="number" id="quantidade-pave-nozes-caramelo" class="quantity-input" value="0" min="0">
+            </div>
+            <div class="menu-item" id="tiramisu-viking">
+                <img src="https://media.istockphoto.com/id/1144347744/pt/foto/a-piece-of-chocolate-pecan-pie-on-a-plate-loose-cake-texture.jpg?s=1024x1024&w=is&k=20&c=xfByVZY7zOuOTVW0OJwN53tyojLrVxHKKIlAsc6l5vE=" alt="Tiramisu Viking">
+                <h3>Tiramisu Viking</h3>
+                <p>Tiramisu tradicional com licor de café e cacau, com um toque viking.</p>
+                <p><strong>R$ 29,90</strong></p>
+                <label for="quantidade-tiramisu-viking">Quantidade:</label>
+                <input type="number" id="quantidade-tiramisu-viking" class="quantity-input" value="0" min="0">
+            </div>
+            <div class="menu-item" id="cheesecake-frutas-vermelhas">
+                <img src="https://media.istockphoto.com/id/2152666391/pt/foto/slice-of-cheesecake-with-fresh-blueberries-and-jam.jpg?s=1024x1024&w=is&k=20&c=smy66De8flKIV2ozf6WXdRaYGyBbmaJrGLH77G40HlU=" alt="Cheesecake de Frutas Vermelhas">
+                <h3>Cheesecake de Frutas Vermelhas</h3>
+                <p>Cheesecake cremoso com frutas vermelhas frescas.</p>
+                <p><strong>R$ 34,90</strong></p>
+                <label for="quantidade-cheesecake-frutas-vermelhas">Quantidade:</label>
+                <input type="number" id="quantidade-cheesecake-frutas-vermelhas" class="quantity-input" value="0" min="0">
+            </div>
+            <div class="menu-item" id="brownie-amendoas-caramelo">
+                <img src="https://media.istockphoto.com/id/1023525074/pt/foto/walnut-and-chocolate-brownies.jpg?s=1024x1024&w=is&k=20&c=LqlTwyX3RMLr4R42Nfj3_elvcTzbhQgJusfyJr0u-Lg=" alt="Brownie de Amêndoas e Caramelo Salgado">
+                <h3>Brownie de Amêndoas e Caramelo Salgado</h3>
+                <p>Brownie de amêndoas com caramelo salgado.</p>
+                <p><strong>R$ 26,90</strong></p>
+                <label for="quantidade-brownie-amendoas-caramelo">Quantidade:</label>
+                <input type="number" id="quantidade-brownie-amendoas-caramelo" class="quantity-input" value="0" min="0">
+            </div>
+            <div class="menu-item" id="gelo-norte-fogo-hidromel">
+                <img src="https://media.istockphoto.com/id/1830854750/pt/foto/apple-pie-with-ice-cream-at-restaurant.jpg?s=2048x2048&w=is&k=20&c=hFS7EW5jrYQ5DkQuP3gJUTIjeU0IqaX3OhwQSe0Utg8=" alt="Gelo do Norte com Fogo de Hidromel">
+                <h3>Gelo do Norte com Fogo de Hidromel</h3>
+                <p>Sorvete de baunilha ou iogurte gelado com crumble crocante de nozes e mel, coberto com calda quente de hidromel e decorado com frutas silvestres e hortelã.</p>
+                <p><strong>R$ 24,90</strong></p>
+                <label for="quantidade-gelo-norte-fogo-hidromel">Quantidade:</label>
+                <input type="number" id="quantidade-gelo-norte-fogo-hidromel" class="quantity-input" value="0" min="0">
+            </div>
+        </div>
+    </section>
+
+    <section id="salgados" class="container menu-section">
+        <h2>Sabores Salgados</h2>
+        <div class="menu">
+            <div class="menu-item" id="costela-viking">
+                <img src="https://images.pexels.com/photos/16588046/pexels-photo-16588046/free-photo-of-comida-alimento-refeicao-placa.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Costela Viking">
+                <h3>Costela Viking</h3>
+                <p>Costela de porco assada lentamente, servida com molho de mel e ervas nórdicas.</p>
+                <p><strong>R$ 49,90</strong></p>
+                <label for="quantidade-costela-viking">Quantidade:</label>
+                <input type="number" id="quantidade-costela-viking" class="quantity-input" value="0" min="0">
+            </div>
+            <div class="menu-item" id="tabua-queijos">
+                <img src="https://media.istockphoto.com/id/874045564/pt/foto/canapes-buffet.jpg?s=2048x2048&w=is&k=20&c=awIpiQsJXbQnf5D0U66jMuAzt2AQ4Vezg1K2GLNOzk8=" alt="Tábua de Queijos e Frios">
+                <h3>Tábua de Queijos e Frios</h3>
+                <p>Uma seleção de queijos finos e embutidos acompanhados de pães artesanais.</p>
+                <p><strong>R$ 39,90</strong></p>
+                <label for="quantidade-tabua-queijos">Quantidade:</label>
+                <input type="number" id="quantidade-tabua-queijos" class="quantity-input" value="0" min="0">
+            </div>
+            <div class="menu-item" id="quantidade-Frango-à-Parmegiana-Viking">
+                <img src="https://media.istockphoto.com/id/523263890/pt/foto/frango-parmes%C3%A3o-com-esparguete.jpg?s=2048x2048&w=is&k=20&c=fEkuIhJtrtU4GCAD-1k1eG03Xb0bH6JFNEcHSM8jOvE=" alt="Frango à Parmegiana Viking">
+                <h4>Frango à Parmegiana Viking</h4>
+                <p>Frango empanado, frito e coberto com molho de tomate e queijo gratinado.</p>
+                <p><strong>R$ 59,90</strong></p>
+                <label for="quantidade-Frango-à-Parmegiana-Viking">Quantidade:</label>
+                <input type="number" id="quantidade-Frango-à-Parmegiana-Viking" class="quantity-input" value="0" min="0">
+            </div>
+            <div class="menu-item" id="bacalhau-viking">
+                <img src="https://media.istockphoto.com/id/857341614/pt/foto/barbecue-fish-steak-on-plate.jpg?s=1024x1024&w=is&k=20&c=qAkZ7KkrfUfi3HnT4vexyl9FOKTgWhQmAfNXFeBqFyE=" alt="Bacalhau à Moda Viking">
+                <h4>Bacalhau à Moda Viking</h4>
+                <p>Bacalhau desfiado, cozido com azeite, alho, cebola e batatas, inspirado nas tradições nórdicas.</p>
+                <p><strong>R$ 79,90</strong></p>
+                <label for="quantidade-bacalhau-viking">Quantidade:</label>
+                <input type="number" id="quantidade-bacalhau-viking" class="quantity-input" value="0" min="0">
+            </div>
+            <div class="menu-item" id="camarão-na-moranga">
+                <img src="https://media.istockphoto.com/id/2165432975/pt/foto/fried-shrimp.jpg?s=2048x2048&w=is&k=20&c=8jQw_8OXk2XWHkFhbywKMlnzkOdZM8VyS_OSZjdDYu0=" alt="Camarão na Moranga">
+                <h4>Camarão na Moranga</h4>
+                <p>Camarões cozidos dentro de uma moranga, com um creme de queijo e molho especial.</p>
+                <p><strong>R$ 89,90</strong></p>
+                <label for="quantidade-camarao-na-moranga">Quantidade:</label>
+                <input type="number" id="quantidade-camarao-na-moranga" class="quantity-input" value="0" min="0">
+            </div>
+            <div class="menu-item" id="escondidinho-carne-seca">
+                <img src="https://media.istockphoto.com/id/1201443136/pt/foto/shepherds-pie-baked-mashed-potato-with-minced-beef.jpg?s=1024x1024&w=is&k=20&c=gWQNz-1B7CFdcRWXuAt4FjUTAnn7x2XtH3ziYjSrJ3I=" alt="Escondidinho de Carne Seca">
+                <h4>Escondidinho de Carne Seca</h4>
+                <p>Carne seca desfiada coberta por purê de mandioca, gratinado ao forno.</p>
+                <p><strong>R$ 49,90</strong></p>
+                <label for="quantidade-escondidinho-carne-seca">Quantidade:</label>
+                <input type="number" id="quantidade-escondidinho-carne-seca" class="quantity-input" value="0" min="0">
+            </div>
+            <div class="menu-item" id="kottbullar">
+                <img src="https://media.istockphoto.com/id/1361548323/pt/foto/k%C3%B6ttbullar-swedish-meatballs-with-mashed-potatoes.jpg?s=1024x1024&w=is&k=20&c=fO0inz-hQTkperPQN-fENHsrvZUb6p_ABQu4f_vc2zg=" alt="Köttbullar (Almôndegas Suecas)">
+                <h4>Köttbullar (Almôndegas Suecas)</h4>
+                <p>Almôndegas tradicionais suecas, servidas com molho de creme e acompanhadas de batatas.</p>
+                <p><strong>R$ 54,90</strong></p>
+                <label for="quantidade-kottbullar">Quantidade:</label>
+                <input type="number" id="quantidade-kottbullar" class="quantity-input" value="0" min="0">
+            </div>
+            <div class="menu-item" id="pao-de-queijo-viking">
+                <img src="https://media.istockphoto.com/id/1495143745/pt/foto/french-onion-stuffed-mushroom-caps.jpg?s=1024x1024&w=is&k=20&c=JABzXG8AAKsy7ojpyrbjatlWqWDD8RcyTA3ZVx2lMns=" alt="Pão de Queijo Viking">
+                <h4>Pão de Queijo Viking</h4>
+                <p>Pão de queijo recheado com carne de sol desfiada e queijo coalho.</p>
+                <p><strong>R$ 19,90</strong></p>
+                <label for="quantidade-pao-de-queijo-viking">Quantidade:</label>
+                <input type="number" id="quantidade-pao-de-queijo-viking" class="quantity-input" value="0" min="0">
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Formulário de Encomenda -->
+    <section id="contato" class="container">
+        <h2>Encomende Agora</h2>
+        <form class="order-form">
+            <h3>Escolha seus pratos:</h3>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" placeholder="Seu nome">
+            
+            <label for="telefone">Telefone:</label>
+            <input type="text" id="telefone" name="telefone" placeholder="Seu telefone">
+
+            <label for="comentarios">Comentários:</label>
+            <textarea id="comentarios" name="comentarios" rows="4" placeholder="Deixe suas observações aqui..."></textarea>
+            <button type="button" id="enviar-whatsapp">Enviar Encomenda</button>
+        </form>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>Restaurante Viking Valhalla | Rua dos Deuses, 123 | Telefone: (11) 99999-9999</p>
+        <p>&copy; 2024 Todos os direitos reservados</p>
+    </footer>
+
+    <script>
+    var pratosSelecionados = [];
+
+    function adicionarPrato(prato, quantidade) {
+        if (quantidade > 0) {
+            pratosSelecionados.push({ prato, quantidade });
+        } else {
+            pratosSelecionados = pratosSelecionados.filter(item => item.prato !== prato);
+        }
+    }
+
+    document.getElementById('enviar-whatsapp').addEventListener('click', function() {
+        var nome = document.getElementById("nome").value;
+        var telefone = document.getElementById("telefone").value;
+        var mensagem = document.getElementById("comentarios").value;
+
+        // Adiciona a quantidade dos pratos
+        var quantidadeTortaMel = document.getElementById("quantidade-torta-mel").value;
+        var quantidadeFrutasCreme = document.getElementById("quantidade-frutas-creme").value;
+        var quantidadeMousseChocolateFramboesa = document.getElementById("quantidade-mousse-chocolate-framboesa").value;
+        var quantidadePaveNozesCaramelo = document.getElementById("quantidade-pave-nozes-caramelo").value;
+        var quantidadeTiramisuViking = document.getElementById("quantidade-tiramisu-viking").value;
+        var quantidadeCheesecakeFrutasVermelhas = document.getElementById("quantidade-cheesecake-frutas-vermelhas").value;
+        var quantidadeBrownieAmendoasCaramelo = document.getElementById("quantidade-brownie-amendoas-caramelo").value;
+        var quantidadeGeloNorteFogoHidromel = document.getElementById("quantidade-gelo-norte-fogo-hidromel").value;
+        var quantidadeCostelaViking = document.getElementById("quantidade-costela-viking").value;
+        var quantidadeTabuaQueijos = document.getElementById("quantidade-tabua-queijos").value;
+        var quantidadeFrangoàParmegianaViking = document.getElementById("quantidade-Frango-à-Parmegiana-Viking").value;
+        var quantidadeBacalhauViking = document.getElementById("quantidade-bacalhau-viking").value;
+        var quantidadeCamaraoMoranga = document.getElementById("quantidade-camarao-na-moranga").value;
+        var quantidadeEscondidinhoCarneSeca = document.getElementById("quantidade-escondidinho-carne-seca").value;
+        var quantidadeKottbullar = document.getElementById("quantidade-kottbullar").value;
+        var quantidadePaoQueijoViking = document.getElementById("quantidade-pao-de-queijo-viking").value;
+
+        // Limpa o array de pratos
+        pratosSelecionados = [];
+
+        // Adiciona os pratos selecionados com suas quantidades
+        adicionarPrato("Torta de Mel", quantidadeTortaMel);
+        adicionarPrato("Frutas com Creme", quantidadeFrutasCreme);
+        adicionarPrato("Mousse de Chocolate com Framboesa", quantidadeMousseChocolateFramboesa);
+        adicionarPrato("Pavê de Nozes e Caramelo", quantidadePaveNozesCaramelo);
+        adicionarPrato("Tiramisu Viking", quantidadeTiramisuViking);
+        adicionarPrato("Cheesecake de Frutas Vermelhas", quantidadeCheesecakeFrutasVermelhas);
+        adicionarPrato("Brownie de Amêndoas e Caramelo Salgado", quantidadeBrownieAmendoasCaramelo);
+        adicionarPrato("Gelo do Norte com Fogo de Hidromel", quantidadeGeloNorteFogoHidromel);
+        adicionarPrato("Costela Viking", quantidadeCostelaViking);
+        adicionarPrato("Tábua de Queijos e Frios", quantidadeTabuaQueijos);
+        adicionarPrato("Frango à Parmegiana Viking", quantidadeFrangoàParmegianaViking);
+        adicionarPrato("Bacalhau à Moda Viking", quantidadeBacalhauViking);
+        adicionarPrato("Camarão na Moranga", quantidadeCamaraoMoranga);
+        adicionarPrato("Escondidinho de Carne Seca", quantidadeEscondidinhoCarneSeca);
+        adicionarPrato("Köttbullar (Almôndegas Suecas)", quantidadeKottbullar);
+        adicionarPrato("Pão de Queijo Viking", quantidadePaoQueijoViking);
+
+        // Criação da mensagem para o WhatsApp
+        var textoMensagem = `⚔️ Pedido do(a) nobre guerreiro(a) ${nome}, filho(a) de Odin ⚔️
+
+📞 Contato: ${telefone}
+
+🍽️ Pratos solicitados: \n${pratosSelecionados.map(item => `${item.quantidade}x ${item.prato}`).join("\n")}
+
+📝 Mensagem para os mestres da cozinha: ${mensagem}
+
+Que Thor, o deus do trovão, abençoe esta jornada de sabores, e que Freya, a deusa do amor e da beleza, traga harmonia e prazer a cada mordida. O feitiço está lançado, e a refeição será digna dos deuses! 🛡️⚡`;
+
+        var urlWhatsApp = `https://wa.me/5551994231399?text=${encodeURIComponent(textoMensagem)}`;
+
+        window.open(urlWhatsApp, '_blank');
+    });
+</script>
+</head>
+<body>
+
